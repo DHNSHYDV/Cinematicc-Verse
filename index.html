@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Suggestions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <!-- Cinematic Title -->
+    <div class="cinematic-title">
+        <div class="title-line" data-text="Enter">Enter</div>
+        <div class="title-line" data-text="The">The</div>
+        <div class="title-line" data-text="Cinematic">Cinematic</div>
+        <div class="title-line" data-text="Verse">Verse</div>
+    </div>
+
+    <!-- 3D Card -->
+    <div class="card-container">
+        <div class="parent">
+            <div class="card">
+                <div class="content-box">
+                    <div class="card-title">Site Under Development</div>
+                    <div class="card-content">This cinematic universe is still under progress. A proper database implementation is needed to fully utilize all features and provide the complete movie experience.</div>
+                    <div class="see-more">Coming Soon</div>
+                </div>
+                <div class="date-box">
+                    <span class="month">JUL</span>
+                    <span class="date">28</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <div class="intro-text">
+                <p class="typing-text" id="typing-text"></p>
+            </div>
+            
+            <button class="enter">
+                <div class="wrapper">
+                    <span>Enter</span>
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                    <div class="circle circle-4"></div>
+                    <div class="circle circle-5"></div>
+                    <div class="circle circle-6"></div>
+                    <div class="circle circle-7"></div>
+                    <div class="circle circle-8"></div>
+                    <div class="circle circle-9"></div>
+                    <div class="circle circle-10"></div>
+                    <div class="circle circle-11"></div>
+                    <div class="circle circle-12"></div>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-text">Scroll down for immersing</div>
+        <div class="scroll-marks">
+            <div class="scroll-arrow">↓</div>
+            <div class="scroll-arrow">↓</div>
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </div>
+
+    <script>
+        // Typing animation
+        const text = `Hi, I am Dhanush. I will be sharing my insights and experiences regarding movies. The content will be Indian Centric and popular Hollywood titles.
+
+I'll be covering everything from classic Indian cinema to contemporary blockbusters, along with international cinema that resonates with Indian audiences.
+
+Join me on this cinematic journey as we explore the world of films together.`;
+
+        const typingText = document.getElementById('typing-text');
+        const enterButton = document.querySelector('.enter');
+        let index = 0;
+        const speed = 50; // 50 WPM equivalent speed
+
+        function typeWriter() {
+            if (index < text.length) {
+                typingText.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, speed);
+            } else {
+                // Hide cursor and show Enter button after typing is complete
+                typingText.classList.add('completed');
+                setTimeout(() => {
+                    enterButton.classList.add('show');
+                }, 500);
+            }
+        }
+
+        // Start typing animation when page loads
+        window.addEventListener('load', function() {
+            setTimeout(typeWriter, 1000); // Start after 1 second
+        });
+    </script>
+
+</body>
+</html> 
